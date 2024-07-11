@@ -4,7 +4,7 @@ import './App.css'
 function App() {
 
   return (
-    <div className="text-3xl font-bold text-green-800">Vivek Kumar Rajput</div>
+    <div className="text-3xl font-bold text-green-800">Vivek Kumar Rajput from Goa</div>
   )
 }
 
