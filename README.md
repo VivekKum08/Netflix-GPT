@@ -11,6 +11,8 @@ Currently, two official plugins are available:
 
 -Create Vite+React App
 -Configured TailwindCSS
+-Header 
+-Login Form
 
 # Features
 -Login/Signup

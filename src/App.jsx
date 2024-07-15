@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import './App.css'
+import Body from "./Compnents/Body"
 
 function App() {
-
-  return (
-    <div className="text-3xl font-bold text-green-800">Vivek Kumar Rajput from Goa</div>
+  return(
+    <div>
+      <Body/>
+    </div>
   )
 }
 
