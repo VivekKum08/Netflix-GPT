@@ -11,8 +11,26 @@ Currently, two official plugins are available:
 
 -Create Vite+React App
 -Configured TailwindCSS
+-Routing of app
 -Header 
 -Login Form
+-Sign up form
+-Form Validation
+-useRef Hook
+-Firebase Setup
+-Deploying our app to production
+-Create sign up user account
+-Create sign in user account
+-Implementing Sign UP/ Sign In API
+-Created redux store with userSlice
+-Implemented Sign Out
+-Update Profile
+-Bugfix : Sign up user displayName and  profile picture update
+-Bugfix : if the user is not logged in Redirect/ browse to login page and vice-versa
+-Unsubscribe to the onAuthStateChanged callback 
+-Fetch from TMDB Movies
+-Register TMDB API & Create an app 
+
 
 # Features
 -Login/Signup
