@@ -12,7 +12,6 @@ const useNowPlayingMovies =() => {
       );
       const movies = await data.json();
       const d1=movies.results;
-      // console.log(d1)
       dispatch(
         addNowPlayingMovies(d1),
       )
@@ -25,3 +24,4 @@ const useNowPlayingMovies =() => {
 }
 
 export default useNowPlayingMovies;
+

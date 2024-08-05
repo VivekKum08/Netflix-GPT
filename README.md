@@ -30,6 +30,7 @@ Currently, two official plugins are available:
 -Unsubscribe to the onAuthStateChanged callback 
 -Fetch from TMDB Movies
 -Register TMDB API & Create an app 
+-
 
 
 # Features

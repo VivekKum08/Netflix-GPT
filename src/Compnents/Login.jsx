@@ -4,7 +4,7 @@ import Header from './Header'
 import { checkValidateLogin} from '../utils/validate';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase';
-import { UserAvatar } from '../utils/constants';
+import { BG_URL, UserAvatar } from '../utils/constants';
 // import { useDispatch } from 'react-redux';
 
 const Login = () => {
@@ -101,7 +101,7 @@ const toggleSignInForm= () =>{
       <Header/>
       <div className="absolute bg-black">
         <img 
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/8728e059-7686-4d2d-a67a-84872bd71025/e90516bd-6925-4341-a6cf-0b9f3d0c140a/IN-en-20240708-POP_SIGNUP_TWO_WEEKS-perspective_WEB_34324b52-d094-482b-8c2a-708dc64c9065_small.jpg"
+        src={BG_URL}
         alt="Background"
         />      
     </div>

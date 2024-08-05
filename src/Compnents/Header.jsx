@@ -1,21 +1,21 @@
 import React from 'react'
-// import Login from './Login';
 import { useNavigate } from 'react-router-dom'
 import { auth } from '../utils/firebase';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import {addUser, removeUser} from '../utils/userSlice';
-import { Logo} from '../utils/constants';
+import { Logo, SUPPORTED_LANGUAGES} from '../utils/constants';
 import {addNowPlayingMovies} from '../utils/moviesSlice';
+import { toggleSearchView } from '../utils/GPTSlice';
+import { changeLanguage } from '../utils/configSlice';
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store)=> store.user);
   const movies=useSelector((store)=>store.movies);
-
-  // console.log(movies)
+  const showGPTSearch = useSelector((store) => store.gpt.showGPTSearch);
 
   const handleSignOut =() => {
     signOut(auth)
@@ -58,26 +58,50 @@ const Header = () => {
     return () => unsubscribe();
   },[]); 
 
+  const handleSearchClick =() =>{
+    //Toggle GPT Search
+    dispatch(toggleSearchView());
+  }
+
+  const handleLanguageChange =(e) => {
+    dispatch(changeLanguage(e.target.value))
+  }
+
   return (
-    <div className=" absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
+    <div className="absolute w-full px-0 py-4 bg-gradient-to-b from-black z-10 flex justify-between">
       <img 
-      className="w-44 "
+      className="w-26 h-14"
       src= {Logo}
       alt="Logo"
       />
       {user && (
-        <div className=' py-4 space-x-2 flex'>
+        <div className='flex p-4 w-1/3'>
+          {showGPTSearch&& (
+            <select className='p-2  bg-gray-900 text-white' onChange={handleLanguageChange}>
+            {SUPPORTED_LANGUAGES.map((lang) => (
+              <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>
+            ))}
+          </select>
+          )}
+
+        <button 
+        className='font-bold text-white truncate p-2 mx-4 bg-blue-800 w-full hover:bg-blue-900 rounded-lg'
+         onClick={handleSearchClick}>
+          {showGPTSearch? "Home Page":"GPT Search"}</button>
         <img 
-        className='w-8 h-8'
+        className='w-9 h-9'
         src={user?.photoURL} 
         alt="usericon"
         />
-        <button onClick={handleSignOut} className='font-bold text-white p-2 my-2 bg-black w-full rounded-lg'>Sign Out</button>
+        <button onClick={handleSignOut} 
+        className='font-bold text-white p-2 mx-4 bg-red-800 w-full hover:bg-red-900 rounded-lg'>
+          Sign Out
+          </button>
       </div>
       )}
       
     </div>
-    // 
+
   )
 }
 
