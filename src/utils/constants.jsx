@@ -10,7 +10,6 @@ export const API_Options ={
     },
 };
 
-console.log(API_Options);
 
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500";
 
@@ -22,5 +21,5 @@ export const SUPPORTED_LANGUAGES = [{identifier: "eng", name: "English"},
 ];
 
 export const AI_KEY = import.meta.env.VITE_SUPERBASE_AI_KEY;
-console.log(AI_KEY);
+
 
