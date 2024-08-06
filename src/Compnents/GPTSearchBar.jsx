@@ -27,8 +27,7 @@ const GPTSearchBar = () => {
 
   
   const handleGPTSearchClick = async() => {
-    console.log(searchText.current.value);
-
+    
      const prompt = "Act as a movie recommendation system and suggest some movies for the query :"+ 
       searchText.current.value  +
      "Only give me name of 5 movies with comma seperated. result should always look like - Spider Man, Elemental, Phir Hera Pheri and result should not have '/n'"
@@ -44,17 +43,17 @@ const GPTSearchBar = () => {
     // const prompt = "Write a story about a magic backpack.";
   
     const result = await model.generateContent(prompt);
-    console.log(result.response.text());
+    (result.response.text());
 
     const gptmovies = result.response.text().split(",");
 
-    console.log(gptmovies);
+    
 
     const promiseArray = gptmovies.map(movie => searchMovieTMDB(movie));
 
     const tmdbResults = await Promise.all(promiseArray);
 
-    console.log(tmdbResults);
+   
 
     dispatch(addGPTMovies({movieNames: gptmovies, movieResults: tmdbResults}));
   };

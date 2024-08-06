@@ -8,8 +8,7 @@ import { BG_URL, UserAvatar } from '../utils/constants';
 // import { useDispatch } from 'react-redux';
 
 const Login = () => {
-// const navigate = useNavigate();
-// const dispatch = useDispatch();
+
 const [isSignINForm, setIsSignInForm] = useState(true);  
 const [errorMessage, setErrorMessage] = useState(null);
 
@@ -20,14 +19,12 @@ const name = useRef(null);
 
 const  handleButtonClick = () =>{
   //validate the form data
-  // checkvalidData()
-  // console.log(name.current.value);
-  // console.log(email.current.value +" "+password.current.value);
+
  
   const message = checkValidateLogin(email.current.value,password.current.value);
   
   
-  // console.log(message);
+ 
   setErrorMessage(message);
 
   if(message) return;
@@ -55,15 +52,14 @@ const  handleButtonClick = () =>{
           photoURL: photoURL,
       })
       );
-      // navigate("/browse")
+     
     }).catch((error) => {
       // An error occurred
       // ...
       setErrorMessage(error.message);
     });
 
-    // console.log(user);
-    // navigate("/browse")
+   
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -78,8 +74,7 @@ const  handleButtonClick = () =>{
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
-      // console.log(user);
-      // navigate("/browse")
+  
     })
     .catch((error) => {
       const errorCode = error.code;
